@@ -4,29 +4,29 @@
 
 ### Student Info
 
--   Name: YOUR NAME
+-   Name: Zach Etienne
 -   Section: ##
 
 ## Game Design
 
--   Camera Orientation: _How are the art assets viewed from? (ie. topdown or side)_
--   Camera Movement: _How does the camera move in your game? (if at all)_
--   Player Health: _How are you handling player health? (healthbar, lives, ?)_
--   End Condition: _How does a game/round/level end?_
--   Scoring: _How does the player earn points in your game?_
+-   Camera Orientation: _Top-Down_
+-   Camera Movement: _The camera doesn't move, only the players and the enemy do_
+-   Player Health: _5 lives_
+-   End Condition: _Enemies will come in waves. Waves end when all enemies are defeated_
+-   Scoring: _Different enemy types will give different point values, from 10 points for the most basic enemy to 1000 for a boss enemy_
 
 ### Game Description
 
-_A brief explanation of your game. Inculde what is the objective for the player. Think about what would go on the back of a game box._
+You are a lightning wizard, and you must hold back the corruption that seeks to destroy your castle and the rest of your hometown.
 
 ### Controls
 
 -   Movement
-    -   Up: 
-    -   Down: 
-    -   Left: 
-    -   Right: 
--   Fire: 
+    -   Up: _W/Up Arrow_
+    -   Down: _S/Down Arrow_
+    -   Left: _A/Left Arrow_
+    -   Right: _D/Right Arrow_
+-   Fire: _Left Click_
 
 ## You Additions
 
