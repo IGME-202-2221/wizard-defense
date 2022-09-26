@@ -31,15 +31,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Change Collision Method",
-                    "type": "Button",
-                    "id": "e28852b2-f1b3-4699-8c2d-3daca9c069ea",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -194,17 +185,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c92bc5d8-4e7b-44b8-a906-a45438cd0c27",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Change Collision Method",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

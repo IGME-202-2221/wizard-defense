@@ -32,21 +32,21 @@ public class Vehicle : MonoBehaviour
         //add velocity to position
         position += velocity;
 
-        if (position.y > height)
+        if (position.y > height - .7)
         {
-            position.y = -height;
+            position.y = height - .7f;
         }
-        else if (position.y < -height)
+        if (position.y < -height + .7)
         {
-            position.y = height;
+            position.y = -height + .7f;
         }
-        else if (position.x > width )
+        if (position.x > width - .7)
         {
-            position.x = -width;
+            position.x = width - .7f;
         }
-        else if (position.x < -width)
+        if (position.x < -width + .7)
         {
-            position.x = width;
+            position.x = -width + .7f;
         }
 
         //place vehicle at updated position
@@ -56,6 +56,5 @@ public class Vehicle : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
     }
 }

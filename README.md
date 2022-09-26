@@ -34,7 +34,7 @@ _List out what you added to your game to make it different for you_
 
 ## Sources
 
--   _List all project sources here –models, textures, sound clips, assets, etc._
+-   https://opengameart.org/content/topdown-wizard
 -   _If an asset is from the Unity store, include a link to the page and the author’s name_
 
 ## Known Issues
