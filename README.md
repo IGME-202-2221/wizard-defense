@@ -13,7 +13,7 @@
 -   Camera Movement: _The camera doesn't move, only the players and the enemy do_
 -   Player Health: _5 lives_
 -   End Condition: _Enemies will come in waves. Waves end when all enemies are defeated_
--   Scoring: _Different enemy types will give different point values, from 10 points for the most basic enemy to 1000 for a boss enemy_
+-   Scoring: _Different enemy types will give different point values, from 50 points for the most basic enemy to 1000 for a boss enemy_
 
 ### Game Description
 
@@ -30,7 +30,14 @@ You are a lightning wizard, and you must hold back the corruption that seeks to 
 
 ## You Additions
 
-_List out what you added to your game to make it different for you_
+-   5 waves
+-   4 different enemy types:
+    -   _Blob:_  fires slow-moving small projectiles, 1 hit to kill, 50 pts when destroyed
+    -   _Ranger:_ fires medium-speed, slightly larger projectiles at a moderate rate, 3 hits to kill, 100 pts when destroyed
+    -   _Spreader:_ spawns at halfway point of the map, fires a spread of 5 medium-speed small projectiles in a cone that tightens in later waves, 5 hits to kill, 300 pts when destroyed
+    -   _Boss:_  summons 5 random enemies periodically, fires large slow projectiles that take away 3 lives but can be destroyed in 10 hits, 30 hits to kill, 1000 points when destroyed
+-   Accuracy, Time, and Flawless Bonuses to score at the end of all 5 waves
+-   Powerups/Buffs of some kind (attack speed boost, extra bolt, spread shot, and extra life) that have a chance to drop from each enemy (if i have time and can figure out how to do it)
 
 ## Sources
 
