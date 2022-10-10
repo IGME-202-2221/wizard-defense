@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         }
         foreach (GameObject projectile in enemyProjectiles)
         {
-            if (projectile.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize - 1)
+            if (projectile != null && projectile.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize - 1)
             {
                 Destroy(projectile);
                 enemyProjectiles.Remove(projectile);

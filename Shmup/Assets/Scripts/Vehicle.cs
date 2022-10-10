@@ -61,7 +61,7 @@ public class Vehicle : MonoBehaviour
 
         foreach(GameObject projectile in playerProjectiles)
         {
-            if (projectile.transform.position.x > Camera.main.aspect * Camera.main.orthographicSize + 1)
+            if (projectile != null && projectile.transform.position.x > Camera.main.aspect * Camera.main.orthographicSize + 1)
             {
                 Destroy(projectile);
                 playerProjectiles.Remove(projectile);

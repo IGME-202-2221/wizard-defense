@@ -39,7 +39,7 @@ public class CollisionHandler : MonoBehaviour
         {
             foreach (GameObject projectile in Vehicle.playerProjectiles)
             {
-                if (CollisionDetection.CircleCollision(projectile, enemy))
+                if (projectile != null && CollisionDetection.CircleCollision(projectile, enemy))
                 {
                     enemy.GetComponent<SpriteRenderer>().color = Color.cyan;
                     break;
@@ -56,7 +56,7 @@ public class CollisionHandler : MonoBehaviour
     {
         foreach (GameObject projectile in Enemy.enemyProjectiles)
         {
-            if (CollisionDetection.CircleCollision(projectile, player))
+            if (projectile != null && CollisionDetection.CircleCollision(projectile, player))
             {
                 player.GetComponent<SpriteRenderer>().color = Color.red;
                 break;
