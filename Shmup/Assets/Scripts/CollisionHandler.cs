@@ -7,12 +7,15 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField]
     GameObject player;
 
+    public static float score;
+
     // Update is called once per frame
     void Update()
     {
         PlayerEnemCollide();
         ProjEnemCollide();
         ProjPlayerCollide();
+        RemoveKilledEnemies();
     }
 
     public void PlayerEnemCollide()
@@ -42,6 +45,8 @@ public class CollisionHandler : MonoBehaviour
                 if (projectile != null && CollisionDetection.PointCircleCollision(projectile, enemy))
                 {
                     enemy.GetComponent<SpriteRenderer>().color = Color.cyan;
+                    enemy.GetComponent<Enemy>().health -= projectile.GetComponent<Bullet>().damage;
+                    Destroy(projectile);
                     break;
                 }
                 else
@@ -59,11 +64,28 @@ public class CollisionHandler : MonoBehaviour
             if (projectile != null && CollisionDetection.AABBCollision(projectile, player))
             {
                 player.GetComponent<SpriteRenderer>().color = Color.red;
+                player.GetComponent<Vehicle>().health -= projectile.GetComponent<Bullet>().damage;
+                Destroy(projectile);
+                Enemy.enemyProjectiles.Remove(projectile);
                 break;
             }
             else
             {
                 player.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
+    }
+
+    public void RemoveKilledEnemies()
+    {
+        foreach(GameObject enemy in EnemyManager.enemies)
+        {
+            if(enemy.GetComponent<Enemy>().health <= 0)
+            {
+                score += enemy.GetComponent<Enemy>().scoreValue;
+                Destroy(enemy);
+                EnemyManager.enemies.Remove(enemy);
+                break;
             }
         }
     }

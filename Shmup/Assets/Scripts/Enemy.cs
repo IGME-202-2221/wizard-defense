@@ -10,6 +10,12 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     GameObject projectile;
 
+    [SerializeField]
+    public float health = 10f;
+
+    [SerializeField]
+    public float scoreValue = 50f;
+
     public static List<GameObject> enemyProjectiles = new List<GameObject>();
 
     [SerializeField]

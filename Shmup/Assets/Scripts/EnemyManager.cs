@@ -27,6 +27,7 @@ public class EnemyManager : MonoBehaviour
             enem.GetComponent<Enemy>().timeCreated = Time.time;
             enemies.Add(enem);
         }
+        //destroy and deal castle integrity damage if left to go offscreen
         foreach (GameObject enemy in enemies)
         {
             if(enemy.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize)

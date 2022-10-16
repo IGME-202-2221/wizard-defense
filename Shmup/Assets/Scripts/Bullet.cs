@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour
     float speed = 15f;
 
     [SerializeField]
+    public float damage = 5f;
+
+    [SerializeField]
     Vector3 direction;
 
     Vector3 position = Vector3.zero;

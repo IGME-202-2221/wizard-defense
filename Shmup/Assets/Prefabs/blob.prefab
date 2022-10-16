@@ -112,4 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   projectile: {fileID: 4047788951214151722, guid: b0d953287ebca0d45a3f0092444897f9, type: 3}
+  health: 10
+  scoreValue: 50
   fireRate: 1.7
+  timeCreated: 0
+  lifetime: 0

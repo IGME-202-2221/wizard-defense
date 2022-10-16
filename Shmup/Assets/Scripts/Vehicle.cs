@@ -14,6 +14,11 @@ public class Vehicle : MonoBehaviour
     [SerializeField]
     GameObject projectile;
 
+    public float health;
+    public float maxHealth;
+
+    public static float healthBarValue = 1f;
+
     public static List<GameObject> playerProjectiles = new List<GameObject>();
 
     Vector3 position = Vector3.zero;
@@ -25,6 +30,7 @@ public class Vehicle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
         position = transform.position;
         height = Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
@@ -33,6 +39,7 @@ public class Vehicle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthBarValue = health / maxHealth;
         //set velocity
         velocity = direction * speed * Time.deltaTime;
 
