@@ -367,6 +367,8 @@ MonoBehaviour:
   enemiesToSpawn:
   - {fileID: 5746304142393301610, guid: 032a51ef9eb8cc247a14eecbb94a7303, type: 3}
   spawnRate: 5
+  potentialProjectiles:
+  - {fileID: 4047788951214151722, guid: b0d953287ebca0d45a3f0092444897f9, type: 3}
 --- !u!1001 &7863827584533457584
 PrefabInstance:
   m_ObjectHideFlags: 0

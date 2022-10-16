@@ -20,13 +20,12 @@ public class Enemy : MonoBehaviour
     Vector3 position = Vector3.zero;
     Vector3 direction = new Vector3(-1, 0);
     Vector3 velocity = Vector3.zero;
-    float timeCreated;
-    float lifetime;
+    public float timeCreated;
+    public float lifetime;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeCreated = Time.time;
         position = transform.position;
     }
 
@@ -34,7 +33,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         lifetime = Time.time - timeCreated;
-        if (Time.time > nextFire)
+        if (lifetime > nextFire)
         {
             nextFire = lifetime + fireRate;
             enemyProjectiles.Add(Instantiate(projectile, position, Quaternion.identity, transform));

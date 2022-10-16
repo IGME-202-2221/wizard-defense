@@ -39,7 +39,7 @@ public class CollisionHandler : MonoBehaviour
         {
             foreach (GameObject projectile in Vehicle.playerProjectiles)
             {
-                if (projectile != null && CollisionDetection.CircleCollision(projectile, enemy))
+                if (projectile != null && CollisionDetection.PointCircleCollision(projectile, enemy))
                 {
                     enemy.GetComponent<SpriteRenderer>().color = Color.cyan;
                     break;
@@ -56,7 +56,7 @@ public class CollisionHandler : MonoBehaviour
     {
         foreach (GameObject projectile in Enemy.enemyProjectiles)
         {
-            if (projectile != null && CollisionDetection.CircleCollision(projectile, player))
+            if (projectile != null && CollisionDetection.AABBCollision(projectile, player))
             {
                 player.GetComponent<SpriteRenderer>().color = Color.red;
                 break;
@@ -68,21 +68,31 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    /*private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(player.transform.position, SpriteInfo.GetRadius(player));
-        foreach(GameObject enemy in EnemyManager.enemies)
+        Gizmos.DrawWireCube(player.transform.position, SpriteInfo.Maximum(player) - SpriteInfo.Minimum (player));
+        foreach (GameObject enemy in EnemyManager.enemies)
         {
-            Gizmos.DrawWireSphere(enemy.transform.position, SpriteInfo.GetRadius(enemy));
+            if (enemy != null)
+            {
+                Gizmos.DrawWireSphere(enemy.transform.position, SpriteInfo.GetRadius(enemy));
+            }
         }
         foreach (GameObject proj in Vehicle.playerProjectiles)
         {
-            Gizmos.DrawWireSphere(proj.transform.position, SpriteInfo.GetRadius(proj));
+            if(proj != null)
+            {
+                Gizmos.DrawWireSphere(proj.transform.position, SpriteInfo.GetRadius(proj));
+            }
         }
         foreach (GameObject proj in Enemy.enemyProjectiles)
         {
-            Gizmos.DrawWireSphere(proj.transform.position, SpriteInfo.GetRadius(proj));
+            if (proj != null)
+            {
+                Gizmos.DrawWireSphere(proj.transform.position, SpriteInfo.GetRadius(proj));
+            }
         }
-    }*/
+    }
 }

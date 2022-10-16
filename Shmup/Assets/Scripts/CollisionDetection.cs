@@ -17,4 +17,12 @@ public class CollisionDetection : MonoBehaviour
     {
         return SpriteInfo.GetDistance(a, b) < SpriteInfo.GetRadius(a) + SpriteInfo.GetRadius(b);
     }
+    public static bool PointBoxCollision(GameObject point, GameObject box)
+    {
+        return SpriteInfo.GetBounds(box).Contains(SpriteInfo.GetCenter(point));
+    }
+    public static bool PointCircleCollision(GameObject point, GameObject circ)
+    {
+        return SpriteInfo.GetDistance(point, circ) < SpriteInfo.GetRadius(circ);
+    }
 }

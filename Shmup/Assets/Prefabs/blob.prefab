@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8604678679237612563}
   - component: {fileID: 7645477111256076751}
   - component: {fileID: 6206813960428475268}
-  - component: {fileID: -1407219150965928839}
+  - component: {fileID: -929556569748829509}
   m_Layer: 0
   m_Name: blob
   m_TagString: Untagged
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ebd11a17cda66409958922d3174561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1407219150965928839
+--- !u!114 &-929556569748829509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   projectile: {fileID: 4047788951214151722, guid: b0d953287ebca0d45a3f0092444897f9, type: 3}
+  fireRate: 1.7

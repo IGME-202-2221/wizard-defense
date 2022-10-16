@@ -23,7 +23,9 @@ public class EnemyManager : MonoBehaviour
         if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
-            enemies.Add(Instantiate(RandomEnemy(), new Vector3((Camera.main.orthographicSize * Camera.main.aspect) + 1, Random.Range(-Camera.main.orthographicSize + .7f, Camera.main.orthographicSize - .7f)), Quaternion.identity, transform));
+            GameObject enem = Instantiate(RandomEnemy(), new Vector3((Camera.main.orthographicSize * Camera.main.aspect) + 1, Random.Range(-Camera.main.orthographicSize + .7f, Camera.main.orthographicSize - .7f)), Quaternion.identity, transform);
+            enem.GetComponent<Enemy>().timeCreated = Time.time;
+            enemies.Add(enem);
         }
         foreach (GameObject enemy in enemies)
         {
