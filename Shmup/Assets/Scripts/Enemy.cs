@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     public float health = 10f;
 
     [SerializeField]
+    bool firesProjectiles;
+
+    [SerializeField]
     public float scoreValue = 50f;
 
     public static List<GameObject> enemyProjectiles = new List<GameObject>();
@@ -38,23 +41,29 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lifetime = Time.time - timeCreated;
-        if (lifetime > nextFire)
+        if (!HUDManager.gameOver)
         {
-            nextFire = lifetime + fireRate;
-            enemyProjectiles.Add(Instantiate(projectile, position, Quaternion.identity, transform));
-        }
-        foreach (GameObject projectile in enemyProjectiles)
-        {
-            if (projectile != null && projectile.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize - 1)
+            lifetime = Time.time - timeCreated;
+            if (firesProjectiles)
             {
-                Destroy(projectile);
-                enemyProjectiles.Remove(projectile);
-                break;
+                if (lifetime > nextFire)
+                {
+                    nextFire = lifetime + fireRate;
+                    enemyProjectiles.Add(Instantiate(projectile, position, Quaternion.identity, transform));
+                }
+                foreach (GameObject projectile in enemyProjectiles)
+                {
+                    if (projectile != null && projectile.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize - 1)
+                    {
+                        Destroy(projectile);
+                        enemyProjectiles.Remove(projectile);
+                        break;
+                    }
+                }
             }
+            velocity = direction * speed * Time.deltaTime;
+            position += velocity;
+            transform.position = position;
         }
-        velocity = direction * speed * Time.deltaTime;
-        position += velocity;
-        transform.position = position;
     }
 }

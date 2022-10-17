@@ -24,8 +24,11 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = direction * speed * Time.deltaTime;
-        position += velocity;
-        transform.position = position;
+        if (!HUDManager.gameOver)
+        {
+            velocity = direction * speed * Time.deltaTime;
+            position += velocity;
+            transform.position = position;
+        }
     }
 }

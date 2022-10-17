@@ -7,25 +7,31 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField]
     GameObject player;
 
-    public static float score;
+    public static float score = 0;
+    public static float shotsHit;
 
     // Update is called once per frame
     void Update()
     {
-        PlayerEnemCollide();
-        ProjEnemCollide();
-        ProjPlayerCollide();
-        RemoveKilledEnemies();
+        if (!HUDManager.gameOver)
+        {
+            PlayerEnemCollide();
+            ProjEnemCollide();
+            ProjPlayerCollide();
+            RemoveKilledEnemies();
+        }
     }
 
     public void PlayerEnemCollide()
     {
         foreach (GameObject enemy in EnemyManager.enemies)
         {
-            if (CollisionDetection.CircleCollision(player, enemy))
+            if (CollisionDetection.AABBCollision(player, enemy))
             {
                 player.GetComponent<SpriteRenderer>().color = Color.red;
-                enemy.GetComponent<SpriteRenderer>().color = Color.red;
+                Vehicle.health -= enemy.GetComponent<Enemy>().health;
+                Destroy(enemy);
+                EnemyManager.enemies.Remove(enemy);
                 break;
             }
             else
@@ -44,6 +50,7 @@ public class CollisionHandler : MonoBehaviour
             {
                 if (projectile != null && CollisionDetection.PointCircleCollision(projectile, enemy))
                 {
+                    shotsHit++;
                     enemy.GetComponent<SpriteRenderer>().color = Color.cyan;
                     enemy.GetComponent<Enemy>().health -= projectile.GetComponent<Bullet>().damage;
                     Destroy(projectile);
@@ -64,7 +71,7 @@ public class CollisionHandler : MonoBehaviour
             if (projectile != null && CollisionDetection.AABBCollision(projectile, player))
             {
                 player.GetComponent<SpriteRenderer>().color = Color.red;
-                player.GetComponent<Vehicle>().health -= projectile.GetComponent<Bullet>().damage;
+                Vehicle.health -= projectile.GetComponent<Bullet>().damage;
                 Destroy(projectile);
                 Enemy.enemyProjectiles.Remove(projectile);
                 break;

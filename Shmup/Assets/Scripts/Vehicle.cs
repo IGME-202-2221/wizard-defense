@@ -14,10 +14,9 @@ public class Vehicle : MonoBehaviour
     [SerializeField]
     GameObject projectile;
 
-    public float health;
-    public float maxHealth;
+    public static float shotsFired = 0;
 
-    public static float healthBarValue = 1f;
+    public static float health = 50;
 
     public static List<GameObject> playerProjectiles = new List<GameObject>();
 
@@ -30,7 +29,6 @@ public class Vehicle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
         position = transform.position;
         height = Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
@@ -39,56 +37,67 @@ public class Vehicle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthBarValue = health / maxHealth;
-        //set velocity
-        velocity = direction * speed * Time.deltaTime;
-
-        //add velocity to position
-        position += velocity;
-
-        if (stopEdges)
+        if (!HUDManager.gameOver)
         {
-            if (position.y > height - 1.7)
-            {
-                position.y = height - 1.7f;
-            }
-            if (position.y < -height + .7)
-            {
-                position.y = -height + .7f;
-            }
-            if (position.x > width - .7)
-            {
-                position.x = width - .7f;
-            }
-            if (position.x < -width + .7)
-            {
-                position.x = -width + .7f;
-            }
-        }
+            //set velocity
+            velocity = direction * speed * Time.deltaTime;
 
-        foreach(GameObject projectile in playerProjectiles)
-        {
-            if (projectile != null && projectile.transform.position.x > Camera.main.aspect * Camera.main.orthographicSize + 1)
-            {
-                Destroy(projectile);
-                playerProjectiles.Remove(projectile);
-                break;
-            }
-        }
+            //add velocity to position
+            position += velocity;
 
-        //place vehicle at updated position
-        transform.position = position;
+            if (stopEdges)
+            {
+                StopEdges();
+            }
+
+            foreach (GameObject projectile in playerProjectiles)
+            {
+                if (projectile != null && projectile.transform.position.x > Camera.main.aspect * Camera.main.orthographicSize + 1)
+                {
+                    Destroy(projectile);
+                    playerProjectiles.Remove(projectile);
+                    break;
+                }
+            }
+
+            //place vehicle at updated position
+            transform.position = position;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        direction = context.ReadValue<Vector2>();
+        if (!HUDManager.gameOver)
+        {
+            direction = context.ReadValue<Vector2>();
+        }
     }
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !HUDManager.gameOver)
         {
             playerProjectiles.Add(Instantiate(projectile, position, Quaternion.identity, transform));
+            shotsFired++;
+        }
+    }
+
+    public void StopEdges()
+    {
+        if (position.y > height - 1.7)
+        {
+            position.y = height - 1.7f;
+        }
+        if (position.y < -height + .7)
+        {
+            position.y = -height + .7f;
+        }
+        if (position.x > width - .7)
+        {
+            position.x = width - .7f;
+        }
+        if (position.x < -width + .7)
+        {
+            position.x = -width + .7f;
         }
     }
 }
