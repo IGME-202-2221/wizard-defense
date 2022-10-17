@@ -5,15 +5,15 @@
 ### Student Info
 
 -   Name: Zach Etienne
--   Section: ##
+-   Section: either 5 or 6
 
 ## Game Design
 
 -   Camera Orientation: _Top-Down_
 -   Camera Movement: _The camera doesn't move, only the players and the enemy do_
--   Player Health: _5 lives_
--   End Condition: _Enemies will come in waves. Waves end when all enemies are defeated_
--   Scoring: _Different enemy types will give different point values, from 50 points for the most basic enemy to 1000 for a boss enemy_
+-   Player Health: _50 health_
+-   End Condition: _Randomly selected enemies will come endlessly, and they will become faster and stringer as you destroy more of them._
+-   Scoring: _Different enemy types will give different point values, from 50 points for the most basic enemy to 100 for a special enemy_
 
 ### Game Description
 
@@ -30,23 +30,26 @@ You are a lightning wizard, and you must hold back the corruption that seeks to 
 
 ## You Additions
 
--   5 waves
--   4 different enemy types:
-    -   _Blob:_  fires slow-moving small projectiles, 1 hit to kill, 50 pts when destroyed
-    -   _Ranger:_ fires medium-speed, slightly larger projectiles at a moderate rate, 3 hits to kill, 100 pts when destroyed
-    -   _Spreader:_ spawns at halfway point of the map, fires a spread of 5 medium-speed small projectiles in a cone that tightens in later waves, 5 hits to kill, 300 pts when destroyed
-    -   _Boss:_  summons 5 random enemies periodically, fires large slow projectiles that take away 3 lives but can be destroyed in 10 hits, 30 hits to kill, 1000 points when destroyed
--   Accuracy, Time, and Flawless Bonuses to score at the end of all 5 waves
--   Powerups/Buffs of some kind (attack speed boost, extra bolt, spread shot, and extra life) that have a chance to drop from each enemy (if i have time and can figure out how to do it)
+-   Castle Integrity
+    -   You must defend your castle from the corrputed enemies. If they reach your castle, it will take damage. You lose if it is destroyed.
+-   3 different enemy types:
+    -   _Blob:_  fires slow-moving small projectiles, starts wiht 20 health, 50 pts when destroyed (the player does 6 damage with their bolt for reference)
+    -   _Gunner:_ fires twice as fast but moves half as fast as the blob, starts with 25 health, 100 pts when destroyed
+    -   _Beetle:_ doesn't shoot but moves quickly toward your castle, starts with 10 health, 100 pts when destroyed
+-   Accuracy, health, and integrity Bonuses to score once you die or your castle is destroyed (this means that you cannot get an integrity bonus and a health bonus, since the game is endless)
 
 ## Sources
 
--   https://opengameart.org/content/topdown-wizard
--   _If an asset is from the Unity store, include a link to the page and the author’s name_
+-   https://opengameart.org/content/topdown-wizard (this is the player character)
+-   I drew all other assets
 
 ## Known Issues
 
 _List any errors, lack of error checking, or specific information that I need to know to run your program_
+-   Score and health are clipped by screen bounds
+-   Enemies and wizard spawn and are able to move too close to the top panel
+-   Basically just the top panel is wonky, everything else works as intended
+-   Also I wanted to implement non-uniform randm but couldn't get that into thething by the due date because i suck at managing my time. I'll add it in on my own time, just for the practice
 
 ### Requirements not completed
 
