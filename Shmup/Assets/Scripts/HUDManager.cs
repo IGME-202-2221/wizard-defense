@@ -12,6 +12,9 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     Slider healthBar;
 
+    [SerializeField]
+    Slider integrityBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +26,6 @@ public class HUDManager : MonoBehaviour
     {
         scoreLabel.text = $"Score: {CollisionHandler.score}";
         healthBar.value = Vehicle.healthBarValue;
+        integrityBar.value = EnemyManager.castleIntegrity;
     }
 }

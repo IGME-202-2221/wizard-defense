@@ -48,9 +48,9 @@ public class Vehicle : MonoBehaviour
 
         if (stopEdges)
         {
-            if (position.y > height - .7)
+            if (position.y > height - 1.7)
             {
-                position.y = height - .7f;
+                position.y = height - 1.7f;
             }
             if (position.y < -height + .7)
             {
