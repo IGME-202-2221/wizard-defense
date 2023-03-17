@@ -49,7 +49,7 @@ _List any errors, lack of error checking, or specific information that I need to
 -   Score and health are clipped by screen bounds
 -   Enemies and wizard spawn and are able to move too close to the top panel
 -   Basically just the top panel is wonky, everything else works as intended
--   Also I wanted to implement non-uniform randm but couldn't get that into thething by the due date because i suck at managing my time. I'll add it in on my own time, just for the practice
+-   Also I wanted to implement non-uniform random but couldn't get that into the thing by the due date. I'll add it in on my own time, just for the practice
 
 ### Requirements not completed
 
